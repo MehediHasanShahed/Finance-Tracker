@@ -1,6 +1,6 @@
 # 📊 Finance Tracker
 
-A modern, full-featured personal finance management web application built with **Next.js**, **Prisma**, **Clerk**, **TailwindCSS**, and **Shadcn UI**.
+A modern, full-featured personal finance management web application built with **Next.js**, **Prisma**, **Clerk**, **Gemini**, **TailwindCSS**, and **Shadcn UI**.
 Track your **transactions**, manage **accounts**, set **budgets**, monitor your **dashboard analytics**, and more — all in a smooth, responsive UI.
 
 ---
@@ -32,6 +32,11 @@ Track your **transactions**, manage **accounts**, set **budgets**, monitor your 
 * Category distribution charts
 * Current month overview
 * Clean UI built with **Shadcn UI** components
+
+### 🤖 AI 
+
+* Use AI to create transactions directly from receipts
+* Provide insights and financial advise with the monthly update email based on your month's spending pattern 
 
 ### 🛠 Developer-Friendly Tech Stack
 
@@ -68,6 +73,7 @@ Track your **transactions**, manage **accounts**, set **budgets**, monitor your 
 * **Validation:** Zod
 * **Email:** Resend
 * **Charts:** Recharts
+* **AI:** Gemini
 
 ---
 
@@ -140,7 +146,12 @@ inngest dev
 | Accounts |
 | <img width="1878" height="923" alt="Opera Snapshot_2025-11-25_012207_localhost" src="https://github.com/user-attachments/assets/5d99367f-8bf8-4136-99b6-cf963725c0ee" /> |
 | <img width="1878" height="923" alt="Opera Snapshot_2025-11-25_012153_localhost" src="https://github.com/user-attachments/assets/7774aabc-a64f-44e0-b541-82c02f0be17a" /> |
-
+| Budget Alert Email |
+| <img width="1552" height="771" alt="Opera Snapshot_2025-11-25_014432_mail google com" src="https://github.com/user-attachments/assets/18887a08-0b54-4f21-8a5c-ba4cfae38846" /> |
+| Monthly Report Email |
+| <img width="1566" height="805" alt="Opera Snapshot_2025-11-25_015036_mail google com" src="https://github.com/user-attachments/assets/a5ead1b3-a95d-453b-914b-12b272f9b844" /> |
+| <img width="1563" height="806" alt="Opera Snapshot_2025-11-25_015051_mail google com" src="https://github.com/user-attachments/assets/4f015241-3f5b-49fb-a5f0-776392267954" /> |
+| <img width="1573" height="798" alt="Opera Snapshot_2025-11-25_015111_mail google com" src="https://github.com/user-attachments/assets/1d9f02d3-242c-45a1-b2d0-2b7e398471fb" /> |
 
 
 
@@ -150,7 +161,7 @@ inngest dev
 
 ## 📧 Email Notifications
 
-The app includes email logic using **Resend** to send confirmation or notification emails.
+The app includes email logic using **Resend** to send notification emails.
 
 ---
 
