@@ -3,7 +3,6 @@ import "./globals.css";
 import Header from "@/components/header";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "sonner";
-import ArcjetClientCheck from "@/components/ArcjetClientCheck";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -18,7 +17,6 @@ export default function RootLayout({ children }) {
     <ClerkProvider>
       <html lang="en">
         <body className={`${inter.className}`}>
-          <ArcjetClientCheck/>
           {/* header */}
           <Header/>
           <main className="min-h-screen">
