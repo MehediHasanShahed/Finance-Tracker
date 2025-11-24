@@ -128,9 +128,9 @@ inngest dev
 ---
 
 ## 📸 Screenshot
-| Converter Interface |
+| Finance Tracker Interface |
 |----------------------|
-|Landing Page|
+| Landing Page |
 | <img width="1878" height="923" alt="Opera Snapshot_2025-11-25_012042_localhost" src="https://github.com/user-attachments/assets/a9f28e7e-370f-4327-854e-65d9cdf32b69" /> |
 | Dashboard |
 | <img width="1878" height="923" alt="Opera Snapshot_2025-11-25_012221_localhost" src="https://github.com/user-attachments/assets/80682cc1-4a62-4017-a3af-c82df7e2fc8b" /> |
