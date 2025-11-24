@@ -82,7 +82,7 @@ Track your **transactions**, manage **accounts**, set **budgets**, monitor your 
 ### 1️⃣ Clone the repository
 
 ```bash[
-git clone https://github.com/your-username/finance-tracker.git
+git clone https://github.com/MehediHasanShahed/Finance-Tracker.git
 cd finance-tracker
 ```
 
