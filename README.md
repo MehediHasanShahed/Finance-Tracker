@@ -116,13 +116,35 @@ npm run dev
 
 ---
 
-## 🧪 Seeding the Database
+## 🧪 Run Inngest
 
-You can seed test accounts and transactions with:
 
 ```
-npm run seed
+inngest dev
 ```
+
+---
+
+---
+
+## 📸 Screenshot
+| Converter Interface |
+|----------------------|
+|Landing Page|
+| <img width="1878" height="923" alt="Opera Snapshot_2025-11-25_012042_localhost" src="https://github.com/user-attachments/assets/a9f28e7e-370f-4327-854e-65d9cdf32b69" /> |
+| Dashboard |
+| <img width="1878" height="923" alt="Opera Snapshot_2025-11-25_012221_localhost" src="https://github.com/user-attachments/assets/80682cc1-4a62-4017-a3af-c82df7e2fc8b" /> |
+| <img width="1878" height="923" alt="Opera Snapshot_2025-11-25_012233_localhost" src="https://github.com/user-attachments/assets/eb173c99-088d-4d29-bd6d-4d93b1e39807" /> |
+| Create Transactions |
+| <img width="1878" height="923" alt="Opera Snapshot_2025-11-25_012129_localhost" src="https://github.com/user-attachments/assets/78c67c34-0299-4b70-aa8f-22bdbb2b77d4" /> |
+| Accounts |
+| <img width="1878" height="923" alt="Opera Snapshot_2025-11-25_012207_localhost" src="https://github.com/user-attachments/assets/5d99367f-8bf8-4136-99b6-cf963725c0ee" /> |
+| <img width="1878" height="923" alt="Opera Snapshot_2025-11-25_012153_localhost" src="https://github.com/user-attachments/assets/7774aabc-a64f-44e0-b541-82c02f0be17a" /> |
+
+
+
+
+
 
 ---
 
@@ -140,8 +162,13 @@ The app includes email logic using **Resend** to send confirmation or notificati
 
 ---
 
-## 🤝 Contributing
+## 👨‍💻 Author
 
-Contributions, issues, and feature requests are welcome!
-Feel free to open a PR.
+**Mehedi Hasan Shahed**
+
+* **Email:** [mehedihasanshahed3@gmail.com](mailto:mehedihasanshahed3@gmail.com)
+
+* **LinkedIn:** [Mehedi Hasan Shahed](https://www.linkedin.com/in/mehedi-hasan-153404287/)
+
+💼 Software Developer | Web Engineer
 
