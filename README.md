@@ -61,13 +61,13 @@ Track your **transactions**, manage **accounts**, set **budgets**, monitor your 
 
 ## 🧰 Tech Stack
 
-**Frontend:** Next.js, React, TailwindCSS, Shadcn UI
-**Backend:** Next.js Server Actions, Inngest
-**Database:** PostgreSQL + Prisma
-**Auth:** Clerk
-**Validation:** Zod
-**Email:** Resend
-**Charts:** Recharts
+* **Frontend:** Next.js, React, TailwindCSS, Shadcn UI
+* **Backend:** Next.js Server Actions, Inngest
+* **Database:** PostgreSQL + Prisma
+* **Auth:** Clerk
+* **Validation:** Zod
+* **Email:** Resend
+* **Charts:** Recharts
 
 ---
 
