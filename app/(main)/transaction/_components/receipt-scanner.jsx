@@ -27,10 +27,11 @@ export function ReceiptScanner({ onScanComplete }) {
 
   useEffect(() => {
     if (scannedData && !scanReceiptLoading) {
-      onScanComplete(scannedData);
+      queueMicrotask(() => onScanComplete(scannedData));
       toast.success("Receipt scanned successfully");
     }
-  }, [scanReceiptLoading, scannedData]);
+  }, [scannedData, scanReceiptLoading, onScanComplete]);
+
 
   return (
     <div className="flex items-center gap-4">

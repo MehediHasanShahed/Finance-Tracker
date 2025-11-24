@@ -41,7 +41,7 @@ const BudgetProgress = ({initialBudget, currentExpenses}) => {
 
     useEffect(() => {
       if (updatedBudget?.success) {
-        setIsEditing(false)
+        queueMicrotask(() => setIsEditing(false))
         toast.success("Budget updated successfully")
       }
     }, [updatedBudget])

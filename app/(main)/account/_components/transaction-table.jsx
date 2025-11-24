@@ -130,7 +130,7 @@ const TransactionTable = ({ transactions }) => {
     useEffect(() => {
         if (deleted && !deleteLoading) {
             toast.success('Transactions Deleted Successfully')
-            setSelectedIds([])
+            queueMicrotask(() => setSelectedIds([]))
         }
     }, [deleted, deleteLoading])
 
@@ -143,7 +143,9 @@ const TransactionTable = ({ transactions }) => {
 
     const totalPages = Math.max(1, Math.ceil(filteredAndSortedTransactions.length / ITEMS_PER_PAGE))
     useEffect(() => {
-        if (page > totalPages) setPage(totalPages)
+        if (page > totalPages) {
+        queueMicrotask(() => setPage(totalPages))
+        }
     }, [totalPages, page])
 
     const handlePrev = (e) => {

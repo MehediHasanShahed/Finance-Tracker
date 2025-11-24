@@ -65,9 +65,11 @@ const AddTransactionForm = ({ accounts, categories, editMode = false, initialDat
         data: transactionResult,
     } = useFetch(editMode ? updateTransaction : createTransaction)
 
+    /* react-compiler-disable */
     const type = watch('type')
     const isRecurring = watch('isRecurring')
     const date = watch('date')
+    /* react-compiler-enable */
 
     const filteredCategories = categories.filter(
         (category) => category.type == type
@@ -87,12 +89,20 @@ const AddTransactionForm = ({ accounts, categories, editMode = false, initialDat
     }
 
     useEffect(() => {
-      if (transactionResult?.success && !transactionLoading) {
-        toast.success(editMode ? 'Transaction updated successfilly!' : 'Transaction created successfully!')
-        reset()
-        router.push(`/account/${transactionResult.data.accountId}`)
-      }
-    }, [transactionResult, transactionLoading])
+    if (transactionResult?.success && !transactionLoading) {
+        toast.success(
+        editMode 
+            ? 'Transaction updated successfully!' 
+            : 'Transaction created successfully!'
+        );
+
+        queueMicrotask(() => {
+        reset();
+        router.push(`/account/${transactionResult.data.accountId}`);
+        });
+    }
+    }, [transactionResult, transactionLoading, reset, router, editMode]);
+
 
     const handleScanComplete = (scannedData) => {
         if (scannedData) {
