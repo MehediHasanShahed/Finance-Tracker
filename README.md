@@ -131,7 +131,6 @@ inngest dev
 
 ---
 
----
 
 ## 📸 Screenshot
 | Finance Tracker Interface |
