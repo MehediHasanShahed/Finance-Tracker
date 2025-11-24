@@ -12,6 +12,7 @@ export default function EmailTemplate({
     const budgetAmount = Number(data?.budgetAmount ?? 0)
     const totalExpenses = Number(data?.totalExpenses ?? 0)
     const remaining = budgetAmount - totalExpenses
+    const net = data?.stats.totalIncome.toFixed(2) - data?.stats.totalExpenses.toFixed(2)
 
     if (type === 'monthly-report') {
         return (
@@ -40,7 +41,7 @@ export default function EmailTemplate({
                     <div style={styles.stat}>
                         <Text style={styles.text}>Net</Text>
                         <Text style={styles.heading}>
-                        BDT {data?.stats.totalIncome.toFixed(2) - data?.stats.totalExpenses.toFixed(2)}
+                        BDT {net.toFixed(2)}
                         </Text>
                     </div>
                     </Section>
