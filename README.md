@@ -1,36 +1,184 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 📊 Finance Tracker
 
-## Getting Started
+A modern, full-featured personal finance management web application built with **Next.js**, **Prisma**, **Clerk**, **Gemini**, **TailwindCSS**, and **Shadcn UI**.
+Track your **transactions**, manage **accounts**, set **budgets**, monitor your **dashboard analytics**, and more — all in a smooth, responsive UI.
 
-First, run the development server:
+---
+
+## 🚀 Features
+
+### 🔐 Authentication & Security
+
+* User authentication powered by **Clerk**
+* Middleware-protected routes
+* Rate-limiting and bot-protection via **Arcjet**
+
+### 💰 Account & Transaction Management
+
+* Create, update, and delete accounts
+* Add expenses, income, and transfers
+* Automatic balance serialization
+* Form validation using **Zod**
+
+### 📅 Budgeting Tools
+
+* Create budgets and track progress
+* Category-based analytics
+* Integrated monthly spending overview
+
+### 📊 Dashboard & Insights
+
+* Transaction history
+* Category distribution charts
+* Current month overview
+* Clean UI built with **Shadcn UI** components
+
+### 🤖 AI 
+
+* Use AI to create transactions directly from receipts
+* Provide insights and financial advise with the monthly update email based on your month's spending pattern 
+
+### 🛠 Developer-Friendly Tech Stack
+
+* **Next.js App Router**
+* **Prisma ORM** with PostgreSQL
+* **Inngest** for background tasks
+* **React Hook Form**
+* **TailwindCSS + Shadcn** for consistent UI
+* Modular structure for scalability
+
+---
+
+## 📂 Project Structure
+
+```
+/actions        → Server actions for accounts, budget, transactions, email, and dashboard
+/app
+  /(main)       → Core pages (dashboard, accounts, transactions, budget)
+  /api          → API routes (Inngest, seeding)
+  /lib          → Schemas, utils, Arcjet config
+/components     → UI components & reusables (drawers, forms, tables)
+ /public        → Static assets
+/prisma         → Database schema
+```
+
+---
+
+## 🧰 Tech Stack
+
+* **Frontend:** Next.js, React, TailwindCSS, Shadcn UI
+* **Backend:** Next.js Server Actions, Inngest
+* **Database:** PostgreSQL + Prisma
+* **Auth:** Clerk
+* **Validation:** Zod
+* **Email:** Resend
+* **Charts:** Recharts
+* **AI:** Gemini
+
+---
+
+## ⚙️ Setup & Installation
+
+### 1️⃣ Clone the repository
+
+```bash[
+git clone https://github.com/MehediHasanShahed/Finance-Tracker.git
+cd finance-tracker
+```
+
+### 2️⃣ Install dependencies
+
+```bash
+npm install
+```
+
+### 3️⃣ Environment variables
+
+Create a `.env` file with:
+
+```
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=sign-up
+DATABASE_URL=
+DIRECT_URL=
+CLERK_SECRET_KEY=
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+RESEND_API_KEY=
+ARCJET_KEY=
+GEMINI_API_KEY=
+```
+
+### 4️⃣ Set up Prisma
+
+```bash
+npx prisma migrate dev
+```
+
+### 5️⃣ Start development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🧪 Run Inngest
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+```
+inngest dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📸 Screenshot
+| Finance Tracker Interface |
+|----------------------|
+| Landing Page |
+| <img width="1878" height="923" alt="Opera Snapshot_2025-11-25_012042_localhost" src="https://github.com/user-attachments/assets/a9f28e7e-370f-4327-854e-65d9cdf32b69" /> |
+| Dashboard |
+| <img width="1878" height="923" alt="Opera Snapshot_2025-11-25_012221_localhost" src="https://github.com/user-attachments/assets/80682cc1-4a62-4017-a3af-c82df7e2fc8b" /> |
+| <img width="1878" height="923" alt="Opera Snapshot_2025-11-25_012233_localhost" src="https://github.com/user-attachments/assets/eb173c99-088d-4d29-bd6d-4d93b1e39807" /> |
+| Create Transactions |
+| <img width="1878" height="923" alt="Opera Snapshot_2025-11-25_012129_localhost" src="https://github.com/user-attachments/assets/78c67c34-0299-4b70-aa8f-22bdbb2b77d4" /> |
+| Accounts |
+| <img width="1878" height="923" alt="Opera Snapshot_2025-11-25_012207_localhost" src="https://github.com/user-attachments/assets/5d99367f-8bf8-4136-99b6-cf963725c0ee" /> |
+| <img width="1878" height="923" alt="Opera Snapshot_2025-11-25_012153_localhost" src="https://github.com/user-attachments/assets/7774aabc-a64f-44e0-b541-82c02f0be17a" /> |
+| Budget Alert Email |
+| <img width="1552" height="771" alt="Opera Snapshot_2025-11-25_014432_mail google com" src="https://github.com/user-attachments/assets/18887a08-0b54-4f21-8a5c-ba4cfae38846" /> |
+| Monthly Report Email |
+| <img width="1566" height="805" alt="Opera Snapshot_2025-11-25_015036_mail google com" src="https://github.com/user-attachments/assets/a5ead1b3-a95d-453b-914b-12b272f9b844" /> |
+| <img width="1563" height="806" alt="Opera Snapshot_2025-11-25_015051_mail google com" src="https://github.com/user-attachments/assets/4f015241-3f5b-49fb-a5f0-776392267954" /> |
+| <img width="1573" height="798" alt="Opera Snapshot_2025-11-25_015111_mail google com" src="https://github.com/user-attachments/assets/1d9f02d3-242c-45a1-b2d0-2b7e398471fb" /> |
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+---
+
+## 📧 Email Notifications
+
+The app includes email logic using **Resend** to send notification emails.
+
+---
+
+## 🎯 Roadmap
+
+* Add recurring transactions
+* AI-based spending insights
+* Mobile app version (React Native)
+
+---
+
+## 👨‍💻 Author
+
+**Mehedi Hasan Shahed**
+
+* **Email:** [mehedihasanshahed3@gmail.com](mailto:mehedihasanshahed3@gmail.com)
+
+* **LinkedIn:** [Mehedi Hasan Shahed](https://www.linkedin.com/in/mehedi-hasan-153404287/)
+
+💼 Software Developer | Web Engineer
+
