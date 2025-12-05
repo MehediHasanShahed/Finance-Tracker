@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "postinstall": "rm -rf node_modules/my-prisma-client && prisma generate"
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@arcjet/inspect": "^1.0.0-beta.15",
