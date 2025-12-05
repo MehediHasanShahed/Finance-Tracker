@@ -9,16 +9,16 @@ import React, { useState } from 'react'
 import { Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip } from 'recharts'
 
 const COLORS = [
-  "#FF6B6B",
-  "#4ECDC4",
-  "#45B7D1",
-  "#96CEB4",
-  "#FFEEAD",
-  "#D4A5A5",
-  "#9FA8DA",
+    "#FF6B6B",
+    "#4ECDC4",
+    "#45B7D1",
+    "#96CEB4",
+    "#FFEEAD",
+    "#D4A5A5",
+    "#9FA8DA",
 ];
 
-const DashboardOverview = ({accounts, transactions}) => {
+const DashboardOverview = ({ accounts, transactions }) => {
 
     const [selectedAccountId, setSelectedAcountId] = useState(
         accounts.find((a) => a.isDefault)?.id || accounts[0]?.id
@@ -29,7 +29,7 @@ const DashboardOverview = ({accounts, transactions}) => {
     )
 
     const recentTransactions = accountTransactions
-        .sort((a,b)=> new Date(b.date) - new Date(a.date)).slice(0,5)
+        .sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 5)
 
     // Calculate expense breakdown for current month
     const currentDate = new Date();
@@ -61,78 +61,78 @@ const DashboardOverview = ({accounts, transactions}) => {
     );
 
     return (
-    <div className='grid gap-6 md:grid-cols-2 m-10'>
-        <Card>
-            <CardHeader className='flex flex-row items-center justify-between space-y-0'>
-                <CardTitle className='text-base font-normal'>Recent Transactions</CardTitle>
-                <Select
-                    value={selectedAccountId}
-                    onValueChange={setSelectedAcountId}
-                >
-                    <SelectTrigger className="w-[150px]">
-                        <SelectValue placeholder="Select account" />
-                    </SelectTrigger>
-                    <SelectContent>
-                        {accounts.map((account) => (
-                            <SelectItem key={account.id} value={account.id}>{account.name}</SelectItem>
-                        ))}
-                    </SelectContent>
-                </Select>
-            </CardHeader>
-            <CardContent>
-                <div>
-                    {recentTransactions.length == 0 ? (
-                        <p className='text-center text-muted-foreground'>No recent Transactions</p>
-                    ) : (
-                        recentTransactions.map((transaction) => {
-                            return (
+        <div className='grid gap-6 md:grid-cols-2'>
+            <Card>
+                <CardHeader className='flex flex-row items-center justify-between space-y-0'>
+                    <CardTitle className='text-base font-normal'>Recent Transactions</CardTitle>
+                    <Select
+                        value={selectedAccountId}
+                        onValueChange={setSelectedAcountId}
+                    >
+                        <SelectTrigger className="w-[150px]">
+                            <SelectValue placeholder="Select account" />
+                        </SelectTrigger>
+                        <SelectContent>
+                            {accounts.map((account) => (
+                                <SelectItem key={account.id} value={account.id}>{account.name}</SelectItem>
+                            ))}
+                        </SelectContent>
+                    </Select>
+                </CardHeader>
+                <CardContent>
+                    <div>
+                        {recentTransactions.length == 0 ? (
+                            <p className='text-center text-muted-foreground'>No recent Transactions</p>
+                        ) : (
+                            recentTransactions.map((transaction) => {
+                                return (
                                     <div
-                                    key={transaction.id}
-                                    className='flex items-center justify-between'
-                                >
-                                    <div className='space-y-1'>
-                                        <p className='text-sm font-medium leading-none'>
-                                            {transaction.description || 'Untitled Transaction'}
-                                        </p>
-                                        <p className='text-sm text-muted-foreground'>
-                                            {format(new Date(transaction.date), 'PP')}
-                                        </p>
-                                        <br></br>
-                                    </div>
-                                    <div className='flex items-center gap-2'>
-                                        <div
-                                            className={cn(
-                                                'flex items-center text-bold mb-8',
-                                                transaction.type === 'EXPENSE'
-                                                    ? 'text-red-500'
-                                                    : 'text-green-500'
-                                            )}
-                                        >
-                                            {transaction.type === 'EXPENSE' ? (
-                                                <ArrowDownRight className='mr-1 h-4 w-4' />
-                                            ) : (
-                                                <ArrowUpRight className='mr-1 h-4 w-4'/>
-                                            )}
-                                            BDT {transaction.amount.toFixed(2)}
+                                        key={transaction.id}
+                                        className='flex items-center justify-between'
+                                    >
+                                        <div className='space-y-1'>
+                                            <p className='text-sm font-medium leading-none'>
+                                                {transaction.description || 'Untitled Transaction'}
+                                            </p>
+                                            <p className='text-sm text-muted-foreground'>
+                                                {format(new Date(transaction.date), 'PP')}
+                                            </p>
                                             <br></br>
                                         </div>
+                                        <div className='flex items-center gap-2'>
+                                            <div
+                                                className={cn(
+                                                    'flex items-center text-bold mb-8',
+                                                    transaction.type === 'EXPENSE'
+                                                        ? 'text-red-500'
+                                                        : 'text-green-500'
+                                                )}
+                                            >
+                                                {transaction.type === 'EXPENSE' ? (
+                                                    <ArrowDownRight className='mr-1 h-4 w-4' />
+                                                ) : (
+                                                    <ArrowUpRight className='mr-1 h-4 w-4' />
+                                                )}
+                                                BDT {transaction.amount.toFixed(2)}
+                                                <br></br>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            )
-                        })
-                    )}
-                </div>
-            </CardContent>
-        </Card>
+                                )
+                            })
+                        )}
+                    </div>
+                </CardContent>
+            </Card>
 
-        <Card>
-            <CardHeader>
-                <CardTitle>Monthly Expense Breakdown</CardTitle>
-            </CardHeader>
-            <CardContent className='p-0 pb-5'>
-                {pieChartData.length === 0 ? (
-                    <p className='text-center text-muted-foreground'>No expenses this month</p>
-                ) : (
+            <Card>
+                <CardHeader>
+                    <CardTitle>Monthly Expense Breakdown</CardTitle>
+                </CardHeader>
+                <CardContent className='p-0 pb-5'>
+                    {pieChartData.length === 0 ? (
+                        <p className='text-center text-muted-foreground'>No expenses this month</p>
+                    ) : (
                         <div className="h-[300px]">
                             <ResponsiveContainer width='100%' height='100%'>
                                 <PieChart>
@@ -146,29 +146,29 @@ const DashboardOverview = ({accounts, transactions}) => {
                                         label={({ name, value }) => `${name}: BDT ${value.toFixed(2)}`}
                                     >
                                         {pieChartData.map((entry, index) => (
-                                        <Cell
-                                            key={`cell-${index}`}
-                                            fill={COLORS[index % COLORS.length]}
-                                        />
+                                            <Cell
+                                                key={`cell-${index}`}
+                                                fill={COLORS[index % COLORS.length]}
+                                            />
                                         ))}
                                     </Pie>
                                     <Tooltip
                                         formatter={(value) => `BDT ${value.toFixed(2)}`}
                                         contentStyle={{
-                                        backgroundColor: "hsl(var(--popover))",
-                                        border: "1px solid hsl(var(--border))",
-                                        borderRadius: "var(--radius)",
+                                            backgroundColor: "hsl(var(--popover))",
+                                            border: "1px solid hsl(var(--border))",
+                                            borderRadius: "var(--radius)",
                                         }}
                                     />
                                     <Legend />
                                 </PieChart>
                             </ResponsiveContainer>
                         </div>
-                )}
-            </CardContent>
-        </Card>
+                    )}
+                </CardContent>
+            </Card>
 
-    </div>
+        </div>
     )
 }
 

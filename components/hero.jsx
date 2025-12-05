@@ -15,51 +15,51 @@ const HeroSection = () => {
         const handleScroll = () => {
             const scrollPosition = window.scrollY;
             const maxScroll = 100;
-            
-            if(scrollPosition > maxScroll) {
+
+            if (scrollPosition > maxScroll) {
                 imageElement.classList.add("scrolled")
             }
-            else{
+            else {
                 imageElement.classList.remove("scrolled")
             }
         };
-        
-        window.addEventListener("scroll",handleScroll)
 
-        return () => window.removeEventListener("scroll",handleScroll)
+        window.addEventListener("scroll", handleScroll)
+
+        return () => window.removeEventListener("scroll", handleScroll)
     }, [])
 
-  return (
-    <div className="pb-20 px-4">
-        <div className="mx-auto text-center">
-            <h1 className="text-5xl md:text-8xl lg:text-[105px] pb-6 gradient-title">
-                Manage Your Finances <br />with Artificial Intelligence
-            </h1>
-            <p className="text-xl text-gray-600 mt-2 mb-8 max-w-2xl mx-auto">
-                {""}
-                An AI-powered finance tracker that helps you monitor your expenses, 
-                create budgets, and achieve your financial goals with real-time insights.
-            </p>
-            <div className="flex justify-center space-x-4">
-                <Link href="/dashboard">
-                    <Button size="lg" className='px-8'>Get Started</Button>
-                </Link>
-            </div>
-            <div className="hero-image-wrapper">
-                <div ref={imageRef} className="hero-image">
-                    <Image 
-                    src='/banner2.jpeg'
-                    width={1280}
-                    height={720}
-                    alt="Finance Tracker Banner"
-                    className="rounded-lg shadow-2xl border mx-auto w-5/6 h-auto"
-                    priority
-                    />
+    return (
+        <div className="pb-20 px-4">
+            <div className="mx-auto text-center">
+                <h1 className="text-5xl md:text-8xl lg:text-[105px] pb-6 gradient-title px-4 md:px-0">
+                    Manage Your Finances <br />with Artificial Intelligence
+                </h1>
+                <p className="text-xl text-gray-600 mt-2 mb-8 max-w-2xl mx-auto">
+                    {""}
+                    An AI-powered finance tracker that helps you monitor your expenses,
+                    create budgets, and achieve your financial goals with real-time insights.
+                </p>
+                <div className="flex justify-center space-x-4">
+                    <Link href="/dashboard">
+                        <Button size="lg" className='px-8'>Get Started</Button>
+                    </Link>
+                </div>
+                <div className="hero-image-wrapper">
+                    <div ref={imageRef} className="hero-image">
+                        <Image
+                            src='/banner2.jpeg'
+                            width={1280}
+                            height={720}
+                            alt="Finance Tracker Banner"
+                            className="rounded-lg shadow-2xl border mx-auto w-5/6 h-auto"
+                            priority
+                        />
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-  )
+    )
 }
 
 export default HeroSection
