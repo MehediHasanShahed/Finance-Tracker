@@ -64,7 +64,7 @@ const Header = async () => {
                 <Menu size={24} />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right">
+            <SheetContent side="right" className="px-6">
               <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
               <div className="flex flex-col gap-4 mt-8">
                 <SignedIn>
