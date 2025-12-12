@@ -177,8 +177,8 @@ const TransactionTable = ({ transactions }) => {
     const pageRange = getPageRange()
         
     return (
-    <Card className="pl-6 pr-6">
-    <div className='space-y-4'>
+    <Card className="p-4 sm:p-6">
+    <div className='space-y-4 mt-4 mb-4'>
         {deleteLoading && (<BarLoader className='mt-4' width={'100%'} color='black'/>)}
 
         {/* Filters */}
@@ -192,7 +192,7 @@ const TransactionTable = ({ transactions }) => {
                     className='pl-8'/>
             </div>
 
-            <div className='flex gap-2'>
+            <div className='flex flex-wrap gap-2 sm:flex-nowrap'>
                 <Select value={typeFilter} onValueChange={setTypeFilter}>
                     <SelectTrigger>
                         <SelectValue placeholder="All Types" />
@@ -204,7 +204,7 @@ const TransactionTable = ({ transactions }) => {
                 </Select>
 
                 <Select value={recurringFilter} onValueChange={setRecurringFilter}>
-                    <SelectTrigger className='w-[155px]'>
+                    <SelectTrigger>
                         <SelectValue placeholder="All Transactions" />
                     </SelectTrigger>
                     <SelectContent>
@@ -229,8 +229,7 @@ const TransactionTable = ({ transactions }) => {
         </div>
 
         {/* Transactions */}
-        <Card className="pl-6 pr-6">
-            <div className='rounded-md boarder'>
+            <div className='rounded-md border overflow-hidden'>
                 <Table>
                     <TableHeader>
                         <TableRow>
@@ -393,8 +392,7 @@ const TransactionTable = ({ transactions }) => {
                     )
                 }
             </div>
-        </Card>
-        </div>
+      </div>
     </Card>
     )
 }

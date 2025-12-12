@@ -4,6 +4,7 @@ import { createTransaction, updateTransaction } from '@/actions/transaction'
 import { transactionSchema } from '@/app/lib/schema'
 import CreateAccountDrawer from '@/components/create-account-drawer'
 import { Button } from '@/components/ui/button'
+import { BarLoader } from "react-spinners";
 import { Calendar } from '@/components/ui/calendar'
 import { Input } from '@/components/ui/input'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
@@ -121,6 +122,17 @@ const AddTransactionForm = ({ accounts, categories, editMode = false, initialDat
 
     return (
     <form className='space-y-6' onSubmit={handleSubmit(onSubmit)}>
+        {/* Loading Bar */}
+        {transactionLoading && (
+            <div className="w-full mb-2">
+                <BarLoader width={"100%"} color="black" />
+            </div>
+        )}
+        {transactionResult?.success && (
+            <div className="w-full mb-2">
+                <BarLoader width={"100%"} color="black" />
+            </div>
+        )}
         {/* AI Recipt Scanner */}
         {!editMode && <ReceiptScanner onScanComplete={handleScanComplete}/>}
 

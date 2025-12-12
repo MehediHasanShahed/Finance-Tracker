@@ -2,9 +2,9 @@ import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from "@cl
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "./ui/button"
-import { LayoutDashboard, PenBox, Menu } from "lucide-react"
+import { LayoutDashboard, PenBox } from "lucide-react"
 import { checkUser } from "@/lib/checkUser"
-import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "./ui/sheet"
+import HeaderMobileMenu from "./header-mobile-menu"
 
 const Header = async () => {
   await checkUser();
@@ -58,42 +58,7 @@ const Header = async () => {
             <UserButton />
           </SignedIn>
 
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Menu size={24} />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="px-6">
-              <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-              <div className="flex flex-col gap-4 mt-8">
-                <SignedIn>
-                  <Link href={'/dashboard'} className="w-full">
-                    <Button variant='outline' className="w-full justify-start gap-2">
-                      <LayoutDashboard size={18} />
-                      Dashboard
-                    </Button>
-                  </Link>
-
-                  <Link href={'/transaction/create'} className="w-full">
-                    <Button className="w-full justify-start gap-2">
-                      <PenBox size={18} />
-                      Add Transaction
-                    </Button>
-                  </Link>
-                </SignedIn>
-
-                <SignedOut>
-                  <SignInButton forceRedirectUrl="/">
-                    <Button variant='outline' className="w-full">Login</Button>
-                  </SignInButton>
-                  <SignUpButton forceRedirectUrl="/">
-                    <Button className="w-full">Sign Up</Button>
-                  </SignUpButton>
-                </SignedOut>
-              </div>
-            </SheetContent>
-          </Sheet>
+          <HeaderMobileMenu />
         </div>
       </nav>
     </div>
