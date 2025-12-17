@@ -332,7 +332,7 @@ const AddTransactionForm = ({
         </Button>
       </div>
       {/* Loading Bar */}
-      {(transactionLoading || transactionResult?.success) && (
+      {transactionResult?.success && (
         <div className="w-full mb-2">
           <BarLoader width={"100%"} color="black" />
         </div>
