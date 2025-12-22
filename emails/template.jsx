@@ -7,8 +7,8 @@ import {
   Heading,
   Text,
   Section,
+  Head,
 } from "@react-email/components";
-import Head from "next/head";
 import * as React from "react";
 
 export default function EmailTemplate({ userName = "", type = "", data = {} }) {
