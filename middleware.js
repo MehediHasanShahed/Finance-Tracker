@@ -1,5 +1,6 @@
 import arcjet, { createMiddleware, detectBot, shield } from '@arcjet/next';
 import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
+import { NextResponse } from 'next/server';
 
 const isProtectedRoute = createRouteMatcher([
   '/dashboard(.*)',
@@ -19,7 +20,8 @@ const aj = process.env.ARCJET_KEY
         mode: "LIVE",
         allow: [
           'CATEGORY:SEARCH_ENGINE',
-          'GO_HTTP'
+          'GO_HTTP',
+          'CURL',  // Allow curl-like requests (Inngest uses similar)
         ]
       })
     ]
@@ -35,8 +37,22 @@ const clerk = clerkMiddleware(async (auth, req) => {
   }
 });
 
-// Export middleware with or without Arcjet
-export default aj ? createMiddleware(aj, clerk) : clerk;
+// Combined middleware that skips Arcjet for Inngest routes
+async function middleware(req) {
+  // Skip Arcjet for Inngest API routes to avoid fingerprint issues
+  if (req.nextUrl.pathname.startsWith('/api/inngest')) {
+    return clerk(req);
+  }
+
+  // Use Arcjet + Clerk for all other routes
+  if (aj) {
+    return createMiddleware(aj, clerk)(req);
+  }
+
+  return clerk(req);
+}
+
+export default middleware;
 
 export const config = {
   matcher: [
