@@ -10,6 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "Finance Tracker",
   description: "Track your finances like a pro!",
+  manifest: "/manifest.json",
 };
 
 export default function RootLayout({ children }) {
@@ -18,7 +19,7 @@ export default function RootLayout({ children }) {
       <html lang="en">
         <body className={`${inter.className}`}>
           {/* header */}
-          <Header/>
+          <Header />
           <main className="min-h-screen">
             {children}
           </main>
@@ -29,7 +30,7 @@ export default function RootLayout({ children }) {
               <p>© 2025 Finance Tracker. All rights reserved.</p>
             </div>
           </footer>
-          </body>
+        </body>
       </html>
     </ClerkProvider>
   );
